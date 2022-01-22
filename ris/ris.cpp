@@ -10,7 +10,7 @@ int main()
     const int size = 9;
     int arr[size][size];
     int max, N = size;
-    char t;
+    char t, reset;
 
     for (int i = 0; i < size; i++) {
         for (int j = 0; j < size; j++) {
@@ -21,187 +21,207 @@ int main()
     }
     cout << endl << endl;
 
-    max = arr[0][0];
-    cout << "Выберите рисунок: ";
-    cin >> t;
+    do {
+
+        max = arr[0][0];
+
+        cout << "a)*****\t" << "b)*----\t" << "c)*****\t" << "d)-----\t" << "f)*****" << endl;
+        cout << "  -****\t" << "  **---\t" << "  -***-\t" << "  -----\t" << "  -***-" << endl;
+        cout << "  --***\t" << "  ***--\t" << "  --*--\t" << "  --*--\t" << "  --*--" << endl;
+        cout << "  ---**\t" << "  ****-\t" << "  -----\t" << "  -***-\t" << "  -***-" << endl;
+        cout << "  ----*\t" << "  *****\t" << "  -----\t" << "  *****\t" << "  *****" << endl;
+        cout << endl;
+        cout << "g)*---*\t" << "h)*----\t" << "i)----*\t" << "j)*****\t" << "k)----*" << endl;
+        cout << "  **-**\t" << "  **---\t" << "  ---**\t" << "  ****-\t" << "  ---**" << endl;
+        cout << "  *****\t" << "  ***--\t" << "  --***\t" << "  ***--\t" << "  --***" << endl;
+        cout << "  **-**\t" << "  **---\t" << "  ---**\t" << "  **---\t" << "  -****" << endl;
+        cout << "  *---*\t" << "  *----\t" << "  ----*\t" << "  *----\t" << "  *****" << endl;
+        cout << endl;
+        cout << "Выберите рисунок: ";
+        cin >> t;
 
 
-    switch (t) {
-    case 'a':
-        for (int i = 0; i < size; i++) {
-            for (int j = 0; j < size; j++) {
-                if (i < j || i == j) {
-                    cout << arr[i][j] << " ";
-                    if (max < arr[i][j]) {
-                        max = arr[i][j];
-                    }
-                }
-                else {
-                    cout << "**" << " ";
-                }
-            }
-            cout << endl;
-        }
-        break;
-    case 'b':
-        for (int i = 0; i < size; i++) {
-            for (int j = 0; j < size; j++) {
-                if (i > j || i == j) {
-                    cout << arr[i][j] << " ";
-                    if (max < arr[i][j]) {
-                        max = arr[i][j];
-                    }
-                }
-                else {
-                    cout << "**" << " ";
-                }
-            }
-            cout << endl;
-        }
-        break;
-    case 'c':
-        for (int i = 0; i < size; i++) {
-            for (int j = 0; j < size; j++) {
-                if ((i < j || i == j) && (N - 1 == i + j || i + j < N - 1)) {
-                    cout << arr[i][j] << " ";
-                    if (max < arr[i][j]) {
-                        max = arr[i][j];
-                    }
-                }
-                else {
-                    cout << "**" << " ";
-                }
-            }
-            cout << endl;
-        }
-        break;
 
-    case 'd':
-        for (int i = 0; i < size; i++) {
-            for (int j = 0; j < size; j++) {
-                if ((i > j || i == j) && (N - 1 == i + j || i + j > N - 1)) {
-                    cout << arr[i][j] << " ";
-                    if (max < arr[i][j]) {
-                        max = arr[i][j];
+        switch (t) {
+        case 'a':
+            for (int i = 0; i < size; i++) {
+                for (int j = 0; j < size; j++) {
+                    if (i < j || i == j) {
+                        cout << arr[i][j] << " ";
+                        if (max < arr[i][j]) {
+                            max = arr[i][j];
+                        }
+                    }
+                    else {
+                        cout << "**" << " ";
                     }
                 }
-                else {
-                    cout << "**" << " ";
-                }
+                cout << endl;
             }
-            cout << endl;
-        }
-        break;
-    case 'f':
-        for (int i = 0; i < size; i++) {
-            for (int j = 0; j < size; j++) {
-                if ((i > j || i == j) && (N - 1 == i + j || i + j > N - 1)) {
-                    cout << arr[i][j] << " ";
-                    if (max < arr[i][j]) {
-                        max = arr[i][j];
+            break;
+        case 'b':
+            for (int i = 0; i < size; i++) {
+                for (int j = 0; j < size; j++) {
+                    if (i > j || i == j) {
+                        cout << arr[i][j] << " ";
+                        if (max < arr[i][j]) {
+                            max = arr[i][j];
+                        }
+                    }
+                    else {
+                        cout << "**" << " ";
                     }
                 }
-                else if ((i < j || i == j) && (N - 1 == i + j || i + j < N - 1)) {
-                    cout << arr[i][j] << " ";
-                    if (max < arr[i][j]) {
-                        max = arr[i][j];
-                    }
-                }
-                else {
-                    cout << "**" << " ";
-                }
+                cout << endl;
             }
-            cout << endl;
-        }
-        break;
-    case 'g':
-        for (int i = 0; i < size; i++) {
-            for (int j = 0; j < size; j++) {
-                if ((i > j || i == j) && (N - 1 == i + j || i + j < N - 1)) {
-                    cout << arr[i][j] << " ";
-                    if (max < arr[i][j]) {
-                        max = arr[i][j];
+            break;
+        case 'c':
+            for (int i = 0; i < size; i++) {
+                for (int j = 0; j < size; j++) {
+                    if ((i < j || i == j) && (N - 1 == i + j || i + j < N - 1)) {
+                        cout << arr[i][j] << " ";
+                        if (max < arr[i][j]) {
+                            max = arr[i][j];
+                        }
+                    }
+                    else {
+                        cout << "**" << " ";
                     }
                 }
-                else if ((i < j || i == j) && (N - 1 == i + j || i + j > N - 1)) {
-                    cout << arr[i][j] << " ";
-                    if (max < arr[i][j]) {
-                        max = arr[i][j];
-                    }
-                }
-                else {
-                    cout << "**" << " ";
-                }
+                cout << endl;
             }
-            cout << endl;
-        }
-        break;
+            break;
 
-    case 'h':
-        for (int i = 0; i < size; i++) {
-            for (int j = 0; j < size; j++) {
-                if ((i > j || i == j) && (N - 1 == i + j || i + j < N - 1)) {
-                    cout << arr[i][j] << " ";
-                    if (max < arr[i][j]) {
-                        max = arr[i][j];
+        case 'd':
+            for (int i = 0; i < size; i++) {
+                for (int j = 0; j < size; j++) {
+                    if ((i > j || i == j) && (N - 1 == i + j || i + j > N - 1)) {
+                        cout << arr[i][j] << " ";
+                        if (max < arr[i][j]) {
+                            max = arr[i][j];
+                        }
+                    }
+                    else {
+                        cout << "**" << " ";
                     }
                 }
-                else {
-                    cout << "**" << " ";
-                }
+                cout << endl;
             }
-            cout << endl;
-        }
-        break;
-    case 'i':
-        for (int i = 0; i < size; i++) {
-            for (int j = 0; j < size; j++) {
-                if ((i < j || i == j) && (N - 1 == i + j || i + j > N - 1)) {
-                    cout << arr[i][j] << " ";
-                    if (max < arr[i][j]) {
-                        max = arr[i][j];
+            break;
+        case 'f':
+            for (int i = 0; i < size; i++) {
+                for (int j = 0; j < size; j++) {
+                    if ((i > j || i == j) && (N - 1 == i + j || i + j > N - 1)) {
+                        cout << arr[i][j] << " ";
+                        if (max < arr[i][j]) {
+                            max = arr[i][j];
+                        }
+                    }
+                    else if ((i < j || i == j) && (N - 1 == i + j || i + j < N - 1)) {
+                        cout << arr[i][j] << " ";
+                        if (max < arr[i][j]) {
+                            max = arr[i][j];
+                        }
+                    }
+                    else {
+                        cout << "**" << " ";
                     }
                 }
-                else {
-                    cout << "**" << " ";
-                }
+                cout << endl;
             }
-            cout << endl;
-        }
-        break;
-    case 'j':
-        for (int i = 0; i < size; i++) {
-            for (int j = 0; j < size; j++) {
-                if (N - 1 == i + j || i + j < N - 1) {
-                    cout << arr[i][j] << " ";
-                    if (max < arr[i][j]) {
-                        max = arr[i][j];
+            break;
+        case 'g':
+            for (int i = 0; i < size; i++) {
+                for (int j = 0; j < size; j++) {
+                    if ((i > j || i == j) && (N - 1 == i + j || i + j < N - 1)) {
+                        cout << arr[i][j] << " ";
+                        if (max < arr[i][j]) {
+                            max = arr[i][j];
+                        }
+                    }
+                    else if ((i < j || i == j) && (N - 1 == i + j || i + j > N - 1)) {
+                        cout << arr[i][j] << " ";
+                        if (max < arr[i][j]) {
+                            max = arr[i][j];
+                        }
+                    }
+                    else {
+                        cout << "**" << " ";
                     }
                 }
-                else {
-                    cout << "**" << " ";
-                }
+                cout << endl;
             }
-            cout << endl;
-        }
-        break;
-    case 'k':
-        for (int i = 0; i < size; i++) {
-            for (int j = 0; j < size; j++) {
-                if (N - 1 == i + j || i + j > N - 1) {
-                    cout << arr[i][j] << " ";
-                    if (max < arr[i][j]) {
-                        max = arr[i][j];
-                    }
-                }
-                else {
-                    cout << "**" << " ";
-                }
-            }
-            cout << endl;
-        }
-        break;
-    }
+            break;
 
-    cout << endl << max << endl;
+        case 'h':
+            for (int i = 0; i < size; i++) {
+                for (int j = 0; j < size; j++) {
+                    if ((i > j || i == j) && (N - 1 == i + j || i + j < N - 1)) {
+                        cout << arr[i][j] << " ";
+                        if (max < arr[i][j]) {
+                            max = arr[i][j];
+                        }
+                    }
+                    else {
+                        cout << "**" << " ";
+                    }
+                }
+                cout << endl;
+            }
+            break;
+        case 'i':
+            for (int i = 0; i < size; i++) {
+                for (int j = 0; j < size; j++) {
+                    if ((i < j || i == j) && (N - 1 == i + j || i + j > N - 1)) {
+                        cout << arr[i][j] << " ";
+                        if (max < arr[i][j]) {
+                            max = arr[i][j];
+                        }
+                    }
+                    else {
+                        cout << "**" << " ";
+                    }
+                }
+                cout << endl;
+            }
+            break;
+        case 'j':
+            for (int i = 0; i < size; i++) {
+                for (int j = 0; j < size; j++) {
+                    if (N - 1 == i + j || i + j < N - 1) {
+                        cout << arr[i][j] << " ";
+                        if (max < arr[i][j]) {
+                            max = arr[i][j];
+                        }
+                    }
+                    else {
+                        cout << "**" << " ";
+                    }
+                }
+                cout << endl;
+            }
+            break;
+        case 'k':
+            for (int i = 0; i < size; i++) {
+                for (int j = 0; j < size; j++) {
+                    if (N - 1 == i + j || i + j > N - 1) {
+                        cout << arr[i][j] << " ";
+                        if (max < arr[i][j]) {
+                            max = arr[i][j];
+                        }
+                    }
+                    else {
+                        cout << "**" << " ";
+                    }
+                }
+                cout << endl;
+            }
+            break;
+        }
+
+        cout << endl << max << endl;
+        cout << "Для еще одного круга нажми 'y': ";
+        cin >> reset;
+
+    }while (reset == 'y');
 }
